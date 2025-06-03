@@ -7,3 +7,4 @@ models
 .venv/*
 *.log
 *.pyc
+tempestai_preedit.zip
