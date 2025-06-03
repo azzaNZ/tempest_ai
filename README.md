@@ -1,3 +1,6 @@
+.\quick_start.cmd
+
+
 This is just a dump of my source code folder for the AI, not (yet) by any stretch carefully organized!
 
 The code is all in the Scripts folder.  The LUA files have .lua extensions and the Python files have .py extensions.

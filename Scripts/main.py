@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Tempest AI Main Entry Point
-Coordinates the pipe server, metrics display, and keyboard handling.
+Coordinates the socket server, metrics display, and keyboard handling.
 """
 
 import os
@@ -16,7 +16,7 @@ from aimodel import (
 from config import (
     RL_CONFIG, MODEL_DIR, LATEST_MODEL_PATH, IS_INTERACTIVE, metrics, SERVER_CONFIG
 )
-from pipe_server import PipeServer
+from named_pipe_server import NamedPipeServer
 from metrics_display import display_metrics_header, display_metrics_row
 
 def stats_reporter(agent, kb_handler):
@@ -98,9 +98,9 @@ def main():
     # Load the model if it exists
     if os.path.exists(LATEST_MODEL_PATH):
         agent.load(LATEST_MODEL_PATH)
-    
-    # Initialize the pipe server
-    server = PipeServer(agent, metrics)
+      # Initialize the named pipe server
+    pipe_name = r"\\.\pipe\tempest_ai_pipe"
+    server = NamedPipeServer(pipe_name, agent, metrics)
     
     # Set the global server reference in metrics
     metrics.global_server = server
@@ -154,4 +154,4 @@ def main():
         print("Application shutdown complete")
 
 if __name__ == "__main__":
-    main()
+    main() 
