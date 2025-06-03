@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Tempest AI Main Entry Point
-Coordinates the socket server, metrics display, and keyboard handling.
+Coordinates the pipe server, metrics display, and keyboard handling.
 """
 
 import os
@@ -154,4 +154,4 @@ def main():
         print("Application shutdown complete")
 
 if __name__ == "__main__":
-    main() 
+    main()
